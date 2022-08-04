@@ -350,7 +350,7 @@ rrc::RRHandle ReadSBML()
 	// TODO: don't hard-code name
 	//if (!rrc::loadSBML(rrHandle, (sbml_filename).c_str()))
 		// std::cout << "     for now, hard-coding sbml_file = ./config/Toy_SBML_Model_1.xml" << std::endl;
-		 if (!rrc::loadSBML(rrHandle, "./config/PK_dosing.xml") )
+		 if (!rrc::loadSBML(rrHandle, "./config/Toy_Metabolic_Model.xml") )
 	{
 		std::cerr << "------------->>>>>  Error while loading SBML file  <-------------\n\n";
 		// return -1;
