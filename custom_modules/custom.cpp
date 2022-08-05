@@ -69,11 +69,14 @@
 #include "../BioFVM/BioFVM.h"  
 using namespace BioFVM;
 
+// #include "librr_intracellular.h"
+#include "../addons/libRoadrunner/src/librr_intracellular.h"
 
-#include "rrc_api.h"
-#include "rrc_types.h"
-// #include "rrc_utilities.h"
-extern "C" rrc::RRHandle createRRInstance();
+
+// #include "rrc_api.h"
+// #include "rrc_types.h"
+// // #include "rrc_utilities.h"
+// extern "C" rrc::RRHandle createRRInstance();
 
 void create_cell_types( void )
 {
@@ -365,10 +368,9 @@ rrc::RRHandle ReadSBML()
 	return rrHandle;
 }
 
-void SimulatePKModel(rrHandle)
+void SimulatePKModel(rrc::RRHandle rrHandle)
 {
     // will simulate with given rrHandle
-
 
 }
 

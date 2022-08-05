@@ -68,6 +68,9 @@
 #include "../core/PhysiCell.h"
 #include "../modules/PhysiCell_standard_modules.h" 
 
+#include "rrc_api.h"
+#include "rrc_types.h"
+
 using namespace BioFVM; 
 using namespace PhysiCell;
 
@@ -93,4 +96,4 @@ void prey_cycling_function( Cell* pCell , Phenotype& phenotype, double dt );
 std::vector<std::vector<double>> create_cell_circle_positions(double cell_radius, double sphere_radius);
 
 rrc::RRHandle ReadSBML();
-void SimulatePKModel(rrHandle);
+void SimulatePKModel(rrc::RRHandle rrHandle);
