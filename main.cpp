@@ -105,8 +105,10 @@ int main( int argc, char* argv[] )
     
     //Read SBML for PK model
 	rrc::RRHandle rrHandle;
+    rrc::RRCDataPtr result;
+    
 	rrHandle = ReadSBML();
-	SimulatePKModel(rrHandle);
+
     
 	// OpenMP setup
 	omp_set_num_threads(PhysiCell_settings.omp_num_threads);
@@ -223,6 +225,13 @@ int main( int argc, char* argv[] )
 			// update the microenvironment
 			microenvironment.simulate_diffusion_decay( diffusion_dt );
             
+            //------------- To PhysiPKPD Team : Here is the simulation happens, nothing to change here -------------
+            // SimulatePKMode
+            double dose;
+            dose = SimulatePKModel(rrHandle);
+            
+            EditMicroenvironment(dose);
+            
             
 /*             double dt_intracellular = 1.0;
             //std::cout << "Current_Time : " << PhysiCell_globals.current_time << " -   FMOD : " << fmod(PhysiCell_globals.current_time,1.0) << std::endl;
@@ -242,12 +251,12 @@ int main( int argc, char* argv[] )
             
             //update_intracellular();
             
-            if( PhysiCell_globals.current_time >= next_intracellular_update )
+/*             if( PhysiCell_globals.current_time >= next_intracellular_update )
             {
 			    update_intracellular();
 
                 next_intracellular_update += intracellular_dt; 
-            }
+            } */
 
 			PhysiCell_globals.current_time += diffusion_dt;
 		}
